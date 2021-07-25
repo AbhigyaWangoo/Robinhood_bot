@@ -3,9 +3,10 @@ import time
 import pyotp
 import sys
 import math 
+import pickle
 
 totp = pyotp.TOTP("GTGBTO63C46YCH65").now()
-login = r.login("dnathunder@gmail.com", "Khazanchi2021!", mfa_code=totp)
+login = r.login(pickle.load(open('username', 'rb')), pickle.load(open('password', 'rb')), mfa_code=totp) 
 
 def truncate(number, decimals=0):
     """
